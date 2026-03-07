@@ -8,13 +8,17 @@ dotenv.config();
 
 const routera = express.Router();
 
+// routera.get("/register", (req, res) => {
+//   res.render()
+// })
 routera.post("/register", async (req, res) => {
     try {
         const { name, email, password } = req.body;
         const existing = await registers.findOne({
             $or: [{name:name}, {email:email}]
         })
-        if (existing) {
+      if (existing) {
+          
           return  res.status(400).send("user already exist")
         }
    
@@ -22,13 +26,16 @@ routera.post("/register", async (req, res) => {
 
              const ruser =await   registers.create({  name, email, password: hashedpassword, });
       console.log("existing",existing)
-        console.log("ruser", ruser);
+      console.log("ruser", ruser);
+      if (ruser) {
+        console.log("registered suceesfully")
              res.json(req.body);
-        
+      }
+      else {console.log("registration failsed")}
     
     } catch (err) {
         console.log(err)
-        res.status(500).send({message:err})
+        res.status(500).send({message:"errin register"})
     }
 })
 

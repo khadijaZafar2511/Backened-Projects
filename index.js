@@ -12,6 +12,7 @@ mongoconnect();
 app.use(
   cors(),
 );
+// app.set("view engine","ejs")
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static((path.join(import.meta.dirname,"/Public"))))
@@ -22,6 +23,8 @@ app.use("/ecomerence",router)
 
 
 // port no
-app.listen(process.env.PORT, (req,res) => {
-    console.log("hello world");
+const PORT =process.env.PORT || 3000 
+app.listen(process.env.PORT, (req, res) => {
+  console.log("hello world");
 })
+
