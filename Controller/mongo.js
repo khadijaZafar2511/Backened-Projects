@@ -5,7 +5,7 @@ dotenv.config();
 export default function mongoconnect() {
   try {
     mongoose
-      .connect(`${process.env.MONGO_URL}/ecomerence-crud`)
+      .connect(`${process.env.MONGO_URL}`)
       .then(() => {
         console.log("database connected");
       })
