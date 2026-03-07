@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export default function mongoconnect() {
-
+  try {
     mongoose
       .connect(`${process.env.MONGO_URL}/ecomerence-crud`)
       .then(() => {
@@ -12,6 +12,9 @@ export default function mongoconnect() {
       .catch((err) => {
         console.log(err);
       });
+  } catch (err) {
+    console.log(err)
+  }
 }
 
    
