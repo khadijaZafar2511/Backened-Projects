@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div  class="flex justify-center mt-3  h-9"><h1 class= "bg-green-500 text-white w-110 h-9 text-center  border rounded <%= magic %>  ">Login Successfully !</h1></div>
+  <div class="flex items-center justify-center">
+  <div class="flex flex-col items-center mt-2 gap-4 w-100 border rounded">
+    <div class="bg-black text-white w-100 h-15 text-xl font-semibold text-center py-4  " >
+         <h1 >Students Login Form</h1>
+    </div>
+    <form action="auth/login" method="post">
+    <div class="flex flex-col gap-4 [&>*]:flex [&>*]:flex-col  [&>*]:gap-2">
+    
+     <div>
+          <label >Enter  your email</label>
+        <input class="w-60 h-10 border border-2" name="email" type="email"/>
+     </div>
+       <div >
+        <label >Enter  your password</label>
+        <input class="w-60 h-10 border border-2" name="password" type="password"/>
+     </div>
+     
+    <button class= " mb-2 ml-70 bg-blue-600 text-white h-10 w-20 py-2 border rounded font-semibold text-center" type="submit">Login</button>
+    </div>
+    </form>
+    </div>
+    </div>
+</body>
+</html>

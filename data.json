@@ -1,0 +1,118 @@
+{
+  "products": [
+    {
+      "id": 11,
+      "title": "Annibale Colombo Bed",
+      "price": 1899.99,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/1.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/2.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/3.webp"
+      ],
+      "tags": ["furniture", "beds"],
+      "description": "The Annibale Colombo Bed is a luxurious and elegant bed frame, crafted with high-quality materials for a comfortable and stylish bedroom."
+    },
+    {
+      "id": 12,
+      "title": "Annibale Colombo Sofa",
+      "price": 2499.99,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/1.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/2.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/3.webp"
+      ],
+      "tags": ["furniture", "sofas"],
+      "description": "The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room."
+    },
+    {
+      "id": 13,
+      "title": "Bedside Table African Cherry",
+      "price": 299.99,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/1.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/2.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/3.webp"
+      ],
+      "tags": ["furniture", "bedside tables"],
+      "description": "The Bedside Table in African Cherry is a stylish and functional addition to your bedroom, providing convenient storage space and a touch of elegance."
+    },
+    {
+      "id": 14,
+      "title": "Knoll Saarinen Executive Conference Chair",
+      "price": 499.99,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/1.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/2.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/3.webp"
+      ],
+      "tags": ["furniture", "office chairs"],
+      "description": "The Knoll Saarinen Executive Conference Chair is a modern and ergonomic chair, perfect for your office or conference room with its timeless design."
+    },
+    {
+      "id": 15,
+      "title": "Wooden Bathroom Sink With Mirror",
+      "price": 799.99,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/1.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/2.webp",
+        "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/3.webp"
+      ],
+      "tags": ["furniture", "bathroom"],
+      "description": "The Wooden Bathroom Sink with Mirror is a unique and stylish addition to your bathroom, featuring a wooden sink countertop and a matching mirror."
+    },
+    {
+      "id": 16,
+      "title": "Apple",
+      "price": 1.99,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/apple/1.webp"
+      ],
+      "tags": ["fruits"],
+      "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes."
+    },
+    {
+      "id": 17,
+      "title": "Beef Steak",
+      "price": 12.99,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/beef-steak/1.webp"
+      ],
+      "tags": ["meat"],
+      "description": "High-quality beef steak, great for grilling or cooking to your preferred level of doneness."
+    },
+    {
+      "id": 18,
+      "title": "Cat Food",
+      "price": 8.99,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/cat-food/1.webp"
+      ],
+      "tags": ["pet supplies", "cat food"],
+      "description": "Nutritious cat food formulated to meet the dietary needs of your feline friend."
+    },
+    {
+      "id": 19,
+      "title": "Chicken Meat",
+      "price": 9.99,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/1.webp",
+        "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/2.webp"
+      ],
+      "tags": ["meat"],
+      "description": "Fresh and tender chicken meat, suitable for various culinary preparations."
+    },
+    {
+      "id": 20,
+      "title": "Cooking Oil",
+      "price": 4.99,
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/cooking-oil/1.webp"
+      ],
+      "tags": ["cooking essentials"],
+      "description": "Versatile cooking oil suitable for frying, sautéing, and various culinary applications."
+    }
+  ],
+  "total": 194,
+  "skip": 10,
+  "limit": 10
+}
