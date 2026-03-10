@@ -11,11 +11,13 @@ const router = express.Router();
 router.get("/", async (req, res) => {
     try {
        
-        const search = req.query || "";
-        const query = id || title? { $or: [
-                  { id: Number(search) },
-                  { title: { $regex: search, $options: "i" } },
-                  { description: { $regex: search, $options: "i" } }]}: {};
+        const search = req.query.products || "";
+        const query = search ? {
+            $or: [
+               
+                { title: { $regex: search, $options: "i" } },
+                { description: { $regex: search, $options: "i" } }]
+        } : {};
        console.log(query)
         const productd = await Products.find(query);
         console.log(query)
