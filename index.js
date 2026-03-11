@@ -5,17 +5,22 @@ import router from "./Routes/prRoute.js";
 import routera from "./Routes/authroutes.js";
 import authm from "./Middleware/authmiddle.js";
 import path from "node:path"
+import cookieParser from "cookie-parser";
 const app = express();
 mongoconnect();
 
 // midleware 
 app.use(
-  cors(),
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  }),
 );
 // app.set("view engine","ejs")
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static((path.join(import.meta.dirname,"/Public"))))
+app.use(cookieParser())
 //Routes
 app.use("/auth", routera)
 app.use(authm)

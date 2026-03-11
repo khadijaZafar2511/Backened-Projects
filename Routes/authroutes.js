@@ -17,22 +17,12 @@ routera.post("/register", async (req, res) => {
         const existing = await registers.findOne({
             $or: [{name:name}, {email:email}]
         })
-      if (existing) {
-          
-          return  res.status(400).send("user already exist")
-        }
-   
-             const hashedpassword = await bcrypt.hash(password, 10);
-
+      if (existing) { return  res.status(400).send("user already exist")}
+      const hashedpassword = await bcrypt.hash(password, 10);
              const ruser =await   registers.create({  name, email, password: hashedpassword, });
-      console.log("existing",existing)
-      console.log("ruser", ruser);
       if (ruser) {
-        console.log("registered suceesfully")
-             res.json(req.body);
+        res.json(req.body);
       }
-      else {console.log("registration failsed")}
-    
     } catch (err) {
         console.log(err)
         res.status(500).send({message:"error in registration"})
@@ -49,8 +39,14 @@ routera.post("/login",async (req, res) => {
     const isMatch = await bcrypt.compare(password, usere.password);
     if (!isMatch) return  res.status(400).send("password is wrong")
     
-    const token=jwt.sign({email},process.env.SECRETE_KEY,{expiresIn:"1d"})
-    res.json( token )
+    const token = jwt.sign({ email }, process.env.SECRETE_KEY, { expiresIn: "1d" })
+
+     res.cookie("token", token, {
+        httpOnly: true,
+        maxAge: 90000,
+     });
+    console.log(req.cookies.token)
+    res.status(200).json({ message: "Login successful!" });
 
 
   } catch (err) {
