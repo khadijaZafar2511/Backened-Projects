@@ -46,6 +46,7 @@ console.log(token)
        secure: true, // Must be true for HTTPS/deployed
        sameSite: "none", // Must be "none" for cross-site cookies
        maxAge: 86400000,
+       partitioned: true,
      });
     // console.log(req.cookies.token)
     res.status(200).json({ message: "Login successful!" });
