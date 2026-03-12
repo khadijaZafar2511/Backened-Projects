@@ -13,7 +13,7 @@ mongoconnect();
 app.set("trust proxy", 1);
 // midleware 
 app.use( cors({
-  origin: "https://ecomerence-website-six.vercel.app/",
+  origin: "https://ecomerence-website-six.vercel.app",
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
 }
