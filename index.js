@@ -14,6 +14,8 @@ app.use(
   cors({
     origin: "http://localhost:5173",
     credentials: true,
+    sameSite: "lax", // Default, but explicitly setting it helps some browsers
+    secure: false,
   }),
 );
 // app.set("view engine","ejs")
