@@ -12,7 +12,7 @@ mongoconnect();
 // midleware 
 app.use(
   cors({
-    origin: "https://ecomerence-website-six.vercel.app/",
+    origin: "https://ecomerence-website-six.vercel.app",
     credentials: true,
     sameSite: "none",
     secure: true,
