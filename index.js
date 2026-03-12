@@ -12,9 +12,9 @@ mongoconnect();
 // midleware 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://ecomerence-website-six.vercel.app/",
     credentials: true,
-    sameSite: "none", // Default, but explicitly setting it helps some browsers
+    sameSite: "none",
     secure: true,
   }),
 );
