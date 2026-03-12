@@ -42,8 +42,10 @@ routera.post("/login",async (req, res) => {
     const token = jwt.sign({ email }, process.env.SECRETE_KEY, { expiresIn: "1d" })
 console.log(token)
      res.cookie("token", token, {
-        httpOnly: true,
-        maxAge: 900000,
+       httpOnly: true,
+       secure: true, // Must be true for HTTPS/deployed
+       sameSite: "none", // Must be "none" for cross-site cookies
+       maxAge: 86400000,
      });
     // console.log(req.cookies.token)
     res.status(200).json({ message: "Login successful!" });

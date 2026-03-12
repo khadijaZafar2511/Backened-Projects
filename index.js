@@ -9,15 +9,16 @@ import cookieParser from "cookie-parser";
 const app = express();
 mongoconnect();
 
+
+app.set("trust proxy", 1);
 // midleware 
-app.use(
-  cors({
-    origin: "https://ecomerence-website-six.vercel.app",
-    credentials: true,
-    sameSite: "none",
-    secure: true,
-  }),
-);
+app.use( cors({
+  origin: "https://ecomerence-website-six.vercel.app/",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
+}
+))
+
 // app.set("view engine","ejs")
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
