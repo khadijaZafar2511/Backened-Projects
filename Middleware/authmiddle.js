@@ -5,6 +5,7 @@ dotenv.config()
 const authm = (req, res, next) => {
     const token = req.cookies.token
     console.log(token)
+    //  console.log(req.cookies.token);
     if (!token) return res.status(401).send("authorization failed")
     try { 
         const decode = jwt.verify(token, process.env.SECRETE_KEY);

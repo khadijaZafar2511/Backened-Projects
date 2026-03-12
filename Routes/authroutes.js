@@ -40,12 +40,12 @@ routera.post("/login",async (req, res) => {
     if (!isMatch) return  res.status(400).send("password is wrong")
     
     const token = jwt.sign({ email }, process.env.SECRETE_KEY, { expiresIn: "1d" })
-
+console.log(token)
      res.cookie("token", token, {
         httpOnly: true,
-        maxAge: 90000,
+        maxAge: 900000,
      });
-    console.log(req.cookies.token)
+    // console.log(req.cookies.token)
     res.status(200).json({ message: "Login successful!" });
 
 
