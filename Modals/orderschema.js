@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
-const orderschema = ({
-    users: {
+const orderschema = new mongoose.Schema({
+    user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:"Users"
+        ref:"registers"
        
     },
     items: [{
-        products: {
+         _id: false,
+        product: {
             type: mongoose.Schema.Types.ObjectId,
             ref:"Products"
             
@@ -15,15 +16,20 @@ const orderschema = ({
         price: Number,
         quantity:Number
     }],
+    shippingAdress: {
+        address: { type: String, required: true },
+    city: { type: String, required: true },
+    province: { type: String, required: true },
+    },
     totalAmount: Number,
     status: {
         type:String,
-        enum: ["pending", "paid", "shipped", "delivered"],
+        enum: ["pending", "paid", "shipped", "delivered", "cancelled"],
         default:"pending"
         
     }
 
-})
+},{timestamps:true})
 
 const Orders = mongoose.model("Orders", orderschema);
 export default Orders;

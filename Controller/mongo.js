@@ -13,7 +13,7 @@ export default function mongoconnect() {
         console.log(err);
       });
   } catch (err) {
-    console.log(err)
+    console.log("connection failed " , err)
   }
 }
 

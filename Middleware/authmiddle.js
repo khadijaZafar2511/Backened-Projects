@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv"
+
 dotenv.config()
 
 const authm = (req, res, next) => {
@@ -10,7 +11,9 @@ const authm = (req, res, next) => {
     try { 
         const decode = jwt.verify(token, process.env.SECRETE_KEY);
         if (decode) {
-           req.user = decode;
+            console.log(decode)
+            req.id = decode.id;
+            req.email = decode.email;
            next();
 
       } else return res.status(401).send("authorization failed")

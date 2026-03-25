@@ -1,7 +1,7 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose  from "mongoose";
 
-const prschema = mongoose.Schema({
-  name: {
+const prschema =new mongoose.Schema({
+  title: {
     type: String,
     required: true,
   },
@@ -9,11 +9,8 @@ const prschema = mongoose.Schema({
     type: String,
     required: true,
   },
+  tags:[String],
   price: {
-    type: Number,
-    required: true,
-  },
-  stock: {
     type: Number,
     required: true,
   },
