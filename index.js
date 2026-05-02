@@ -4,7 +4,8 @@ import mongoconnect from "./Controller/mongo.js";
 import routerp from "./Routes/prRoute.js";
 import routerc from "./Routes/cartroutes.js";
 import routera from "./Routes/authroutes.js";
-import routero from "./Routes/orderroutes.js"
+import routero from "./Routes/orderroutes.js";
+import routerpay from "./Routes/paymentroute.js"
 import authm from "./Middleware/authmiddle.js";
 import path from "node:path"
 import cookieParser from "cookie-parser";
@@ -24,7 +25,7 @@ app.use(
 // app.set("view engine","ejs")
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static((path.join(import.meta.dirname,"/Public"))))
+// app.use(express.static((path.join(import.meta.dirname,"/Public"))))
 app.use(cookieParser())
 //Routes
 
@@ -35,7 +36,7 @@ app.use("/ecomerence", routerp)
 app.use(authm);
 app.use("/cart", routerc)
 app.use("/order", routero)
-
+app.use("/payment",routerpay)
 app.get("/me", (req, res,next) => {
   try { 
   if (req.id) {

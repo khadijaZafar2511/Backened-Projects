@@ -25,12 +25,13 @@ routero.post("/", async (req, res) => {
 const user = await registers.findOne({_id:id})
     console.log(user);
     if (user) {
-      const formdata = req.body.formdata;
+
+      const saveinfo = req.body.saveinfo;
           const items = req.body.productArray;
           const shippingAdress = {
-            address: formdata.address,
-            city: formdata.city,
-            province: formdata.province,
+            address: saveinfo.address,
+            city: saveinfo.city,
+            province: saveinfo.province,
           };
           const totalAmount = items.reduce(
             (total, item) => total + (item.price * item.quantity),
@@ -48,56 +49,6 @@ const user = await registers.findOne({_id:id})
     res.status(500).send("Internal Server Error")
   }
 
-
-
-
-
-
-    // try { 
-    //     const id = req.id;
-    //     const existing = await Orders.findOne({ user: id })
-      
-    //   if (!existing) {
-    //     const formdata = req.body.formdata;
-    //     const items = req.body.productArray;
-    //     const shippingAdress = {
-    //       address: formdata.address,
-    //       city: formdata.city,
-    //       province: formdata.province,
-    //     };
-    //     const totalAmount = items.reduce(
-    //       (total, item) => total + (item.price * item.quantity),
-    //       0,
-    //     );
-    //     const user = req.id;
-    //     console.log(totalAmount);
-    //     await Orders.create({ user:user, items, shippingAdress, totalAmount });
-    //     console.log(req.body)
-    //   }
-    //   else {
-    //     const products = req.body.productArray;
-    //    products.forEach((p) => {
-    //       const existingitem = existing.items.find(
-    //         (pr) => pr.product.toString() == p.product.toString(),
-    //       );
-    //       if (existingitem) {
-    //         existingitem.quantity += p.quantity;
-    //       } else {
-    //         existing.items.push(p);
-    //       }
-    //     });
-    //      existing.totalAmount = existing.items.reduce(
-    //        (total, item) => total + item.price * item.quantity,
-    //        0,
-    //      );
-       
-    //     await existing.save();
-    //   }
-    //     res.status(200).send({message:"success"})
-    // } catch (err) {
-    //     console.error(err)
-    //     res.status(500).send("Internal Server Error")
-    // }
     
 })
 
@@ -116,7 +67,7 @@ routero.patch("/:id/cancel", async (req, res) => {
     }
     order.status = "cancelled"
     await order.save();
-    
+    res.status(200).json({message:"success"})
 
     
   } catch (err) {
@@ -125,8 +76,22 @@ routero.patch("/:id/cancel", async (req, res) => {
   }
 });
 
-export default routero;
+//  its temporary route work has to do on it
 
+routero.delete("/", async (req, res) => {
+  try {
+    const id = req.id;
+    const deleteduser = await Orders.deleteMany({ user: id });
+    if (deleteduser) {
+      res.status(200).json({message:"deleted sucessfully"})
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+export default routero;
 
 
 

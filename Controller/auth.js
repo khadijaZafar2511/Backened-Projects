@@ -46,7 +46,7 @@ const login = async (req, res) => {
       return res.status(400).send("user with this email is not exits");
 
     const isMatch = await bcrypt.compare(password, usere.password);
-    if (!isMatch) return res.status(400).send("password is wrong");
+    if (!isMatch) return res.status(401).json({authorization:"failed"});
     const id = usere._id;
     console.log(id)
     const token = jwt.sign({ email,id}, process.env.SECRETE_KEY, {
@@ -59,6 +59,7 @@ const login = async (req, res) => {
       sameSite: "none", // Must be "none" for cross-site cookies
       maxAge: 86400000,
     });
+    res.cookie("isLoggedIn", "true", { httpOnly: false });
     // console.log(req.cookies.token)
     res.status(200).json({ message: "Login successful!" });
   } catch (err) {

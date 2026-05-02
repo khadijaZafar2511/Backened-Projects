@@ -27,6 +27,7 @@
     "mongoose-paginate-v2": "^1.9.1",
     "mongoose-pagination-v2": "^0.0.4",
     "multer": "^2.1.0",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "stripe": "^22.0.1"
   }
 }
