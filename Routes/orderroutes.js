@@ -23,24 +23,24 @@ routero.post("/", async (req, res) => {
   try { 
     const id = req.id;
 const user = await registers.findOne({_id:id})
-    console.log(user);
-    console.log(req.body)
     if (user) {
-
-      // const saveddata = req.body.saveddata;
-      //     const items = req.body.productArray;
       const { saveddata, productArray } = req.body;
           const shippingAdress = {
             address: saveddata.address,
             city: saveddata.city,
             province: saveddata.province,
           };
-          const totalAmount = items.reduce(
-            (total, item) => total + (item.price * item.quantity),
+          const totalAmount = productArray.reduce(
+            (total, item) => total + item.price * item.quantity,
             0,
           );
-          console.log(totalAmount);
-          await Orders.create({ user:id, items, shippingAdress, totalAmount });
+    
+          await Orders.create({
+            user: id,
+            items: productArray,
+            shippingAdress,
+            totalAmount,
+          });
           console.log(req.body)
     }
   res.status(200).send({ message: "success" });
