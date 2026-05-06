@@ -27,13 +27,13 @@ const user = await registers.findOne({_id:id})
     console.log(req.body)
     if (user) {
 
-      // const formdata = req.body.formdata;
+      // const saveddata = req.body.saveddata;
       //     const items = req.body.productArray;
-      const { formdata, productArray } = req.body;
+      const { saveddata, productArray } = req.body;
           const shippingAdress = {
-            address: formdata.address,
-            city: formdata.city,
-            province: formdata.province,
+            address: saveddata.address,
+            city: saveddata.city,
+            province: saveddata.province,
           };
           const totalAmount = items.reduce(
             (total, item) => total + (item.price * item.quantity),
