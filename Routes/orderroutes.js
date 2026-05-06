@@ -24,14 +24,16 @@ routero.post("/", async (req, res) => {
     const id = req.id;
 const user = await registers.findOne({_id:id})
     console.log(user);
+    console.log(req.body)
     if (user) {
 
-      const saveinfo = req.body.saveinfo;
-          const items = req.body.productArray;
+      // const formdata = req.body.formdata;
+      //     const items = req.body.productArray;
+      const { formdata, productArray } = req.body;
           const shippingAdress = {
-            address: saveinfo.address,
-            city: saveinfo.city,
-            province: saveinfo.province,
+            address: formdata.address,
+            city: formdata.city,
+            province: formdata.province,
           };
           const totalAmount = items.reduce(
             (total, item) => total + (item.price * item.quantity),
