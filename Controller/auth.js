@@ -61,8 +61,8 @@ const login = async (req, res) => {
     });
        res.cookie("isLoggedIn", "true", {
       httpOnly: false,
-      secure: false, // Must be true for HTTPS/deployed
-      sameSite: "lax", // Must be "none" for cross-site cookies
+      secure: true, // Must be true for HTTPS/deployed
+      sameSite: "none", // Must be "none" for cross-site cookies
       maxAge: 86400000,
     });
     res.status(200).json({ message: "Login successful!" });
