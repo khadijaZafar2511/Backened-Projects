@@ -57,10 +57,14 @@ const login = async (req, res) => {
       httpOnly: true,
       secure: true, // Must be true for HTTPS/deployed
       sameSite: "none", // Must be "none" for cross-site cookies
-      maxAge: 86400000,
+      maxAge: 86400,
     });
-    res.cookie("isLoggedIn", "true", { httpOnly: false });
-    // console.log(req.cookies.token)
+       res.cookie("isLoggedIn", "true", {
+      httpOnly: false,
+      secure: true, // Must be true for HTTPS/deployed
+      sameSite: "none", // Must be "none" for cross-site cookies
+      maxAge: 86400,
+    });
     res.status(200).json({ message: "Login successful!" });
   } catch (err) {
     console.log(err);
