@@ -1,6 +1,7 @@
 import mongoose  from "mongoose";
 
-const prschema =new mongoose.Schema({
+const prschema = new mongoose.Schema({
+  id: { type: Number, required: true },
   title: {
     type: String,
     required: true,
@@ -9,26 +10,29 @@ const prschema =new mongoose.Schema({
     type: String,
     required: true,
   },
-  tags:[String],
+  category: {
+    type: String,
+  },
+  tags: [String],
   price: {
     type: Number,
     required: true,
   },
   images: [String],
-  category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Category",
-  },
+  // category: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "Category",
+  // },
   stock: {
     type: Number,
-    min:0
+    min: 0,
   },
   rating: {
-    type:Number
+    type: Number,
   },
   warrantyInformation: {
-    type:String
-  }
+    type: String,
+  },
 });
 
 const Products = mongoose.model("Products", prschema)
